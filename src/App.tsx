@@ -5,9 +5,6 @@ import Search from './components/Search';
 import { note, Note, noteArraySchema } from './utils/validateNote';
 
 
-
-
-
 function App() {
     const [notes, setNote] = useState<Note>(note);
     const [searchNote, setSearchNote] = useState('');
@@ -39,23 +36,10 @@ function App() {
             title: title,
             content: note,
             created: new Date(),
-            updated: new Date(),
         }
         noteArraySchema.parse([newNote, ...notes])
         setNote([...notes, newNote])
     }
-
-    // const addTitle = (title: string) => {
-    //     const newTitle = {
-    //         id: nanoid(),
-    //         title: title,
-    //         content: 'Content',
-    //         created: new Date(),
-    //         updated: new Date(),
-    //     }
-    //     noteArraySchema.parse([newTitle, ...notes])
-    //     setNote([...notes, newTitle])
-    // }
 
 
     const deleteNote = (id: string) => {
@@ -73,7 +57,6 @@ function App() {
                 notes={notes.filter((note) => {
                     return note.title.toLowerCase().includes(searchNote.toLowerCase())
                 })}
-                // addTitle={addTitle}
                 addNote={addNote}
                 deleteNote={deleteNote}
                 handleChange={handleChange}

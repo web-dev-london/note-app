@@ -14,7 +14,6 @@ const NodeView = (props: {
     const [isEditing, setIsEditing] = useState(false);
     const characterLimit = 300;
 
-
     let noteContent;
     if (isEditing) {
         noteContent =
@@ -35,7 +34,11 @@ const NodeView = (props: {
                     as={'span'}
                     fontSize={'14px'}
                 >
-                    Character Limit: {characterLimit - props.content.length >= 0 ? characterLimit - props.content.length : 0}
+                    Character Limit: {
+                        characterLimit - props.content.length >= 0
+                            ? characterLimit - props.content.length
+                            : 0
+                    }
                 </Text>
             </Box>
     } else {

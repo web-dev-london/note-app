@@ -35,8 +35,6 @@ const AddNote = (props: {
     }
 
 
-
-
     return (
         <>
             <Card>
