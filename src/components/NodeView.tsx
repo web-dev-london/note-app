@@ -6,7 +6,7 @@ import { CiEdit, CiTrash, CiBookmarkCheck } from "react-icons/ci";
 const NodeView = (props: {
     title: string;
     content: string;
-    created: Date;
+    created: string;
     id: string;
     deleteNote: (id: string) => void;
     handleChange: (noteId: string, event: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -65,7 +65,7 @@ const NodeView = (props: {
                 minH={'400px'}
             >
                 <CardHeader>
-                    <Heading size="md">{props.title}</Heading>
+                    <Heading size="md">{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</Heading>
                 </CardHeader>
                 <Divider />
                 <CardBody
