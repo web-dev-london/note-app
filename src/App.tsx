@@ -19,10 +19,7 @@ function App() {
         if (storedNotes) {
             setNote(storedNotes)
         }
-        console.log('Stored notes: ', storedNotes);
     }, [])
-
-
 
     useEffect(() => {
         localStorage.setItem('note-app', JSON.stringify(notes))
