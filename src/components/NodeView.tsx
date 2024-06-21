@@ -79,7 +79,7 @@ const NodeView = (props: {
                     >
                         <Box>
                             <Text>Created:</Text>
-                            <Text>{props.created.toDateString()}</Text>
+                            <Text>{props.created.toLocaleString()}</Text>
                         </Box>
                         <ButtonGroup
                             ml={'auto'}

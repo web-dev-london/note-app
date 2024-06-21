@@ -5,7 +5,7 @@ const noteSchema = z.object({
     id: z.string(),
     title: z.string(),
     content: z.string(),
-    created: z.date(),
+    created: z.string(),
 });
 
 export const noteArraySchema = z.array(noteSchema);
