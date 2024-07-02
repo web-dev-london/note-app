@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid"
 
-export const notes = [{
+export const notesData = [{
     id: nanoid(),
     title: 'Note 1',
     content: 'Content 1',

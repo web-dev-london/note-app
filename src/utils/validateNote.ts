@@ -1,5 +1,5 @@
 import { z } from "zod";
-import notes from "../data";
+import notesData from "../data";
 
 const noteSchema = z.object({
     id: z.string(),
@@ -10,6 +10,6 @@ const noteSchema = z.object({
 
 export const noteArraySchema = z.array(noteSchema);
 
-export const note = noteArraySchema.parse(notes)
+export const parsedNotes = noteArraySchema.parse(notesData)
 
 export type Note = z.infer<typeof noteArraySchema>; // infer the type

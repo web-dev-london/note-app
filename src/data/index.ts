@@ -1,3 +1,3 @@
-import { notes } from "./data";
+import { notesData } from "./data";
 
-export default notes
+export default notesData

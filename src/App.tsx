@@ -2,24 +2,22 @@ import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import NodeList from './components/NodeList';
 import Search from './components/Search';
-import { note, Note, noteArraySchema } from './utils/validateNote';
+import { parsedNotes, Note, noteArraySchema } from './utils/validateNote';
 
 
 function App() {
-    const [notes, setNote] = useState<Note>(
-        !localStorage.getItem('note-app')
-            ? note
-            : noteArraySchema.parse(JSON.parse(localStorage.getItem('note-app') as string))
-    );
-    const [searchNote, setSearchNote] = useState('');
-
-
-    useEffect(() => {
-        const storedNotes = JSON.parse(localStorage.getItem('note-app') as string) as Note;
-        if (storedNotes) {
-            setNote(storedNotes)
+    function initializeNotes() {
+        const localNotes = localStorage.getItem('note-app')
+        if (localNotes) {
+            const notes = JSON.parse(localNotes)
+            return noteArraySchema.parse(notes)
+        } else {
+            return parsedNotes
         }
-    }, [])
+    }
+
+    const [notes, setNote] = useState<Note>(initializeNotes);
+    const [searchNote, setSearchNote] = useState('');
 
     useEffect(() => {
         localStorage.setItem('note-app', JSON.stringify(notes))
